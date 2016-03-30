@@ -206,13 +206,15 @@
 								MinHeight="24"
 								MaxWidth="267">
 					<Border.Effect>
-						<DropShadowEffect ShadowDepth="4"
+						<DropShadowEffect x:Name="errorBorderDropShadow"
+															ShadowDepth="4"
 															Color="Black"
 															Opacity="0.6"
 															Direction="315"
 															BlurRadius="4"/>
 					</Border.Effect>
-					<TextBlock Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}"
+					<TextBlock x:Name="errorTextBlock"
+										 Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}"
 										 Foreground="White"
 										 Margin="8,3,8,3"
 										 TextWrapping="Wrap"/>
