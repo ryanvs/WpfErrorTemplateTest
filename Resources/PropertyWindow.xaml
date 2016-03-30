@@ -1,0 +1,82 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- Property Window Styles -->
+	<Style x:Key="PropWinCommon" TargetType="{x:Type Control}">
+		<Setter Property="Margin" Value="0,0,0,2"/>
+		<Setter Property="MinWidth" Value="100"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+	</Style>
+	<Style x:Key="PropWinDataGrid" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource PropWinCommon}">
+		<Setter Property="HorizontalGridLinesBrush" Value="LightGray"/>
+		<Setter Property="VerticalGridLinesBrush" Value="LightGray"/>
+	</Style>
+	<Style x:Key="PropWinLabelStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="Margin" Value="0,0,0,2"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+		<Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+	</Style>
+	<Style x:Key="PropWinCheckBoxStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource PropWinCommon}">
+	</Style>
+	<Style x:Key="PropWinComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource PropWinCommon}">
+		<Setter Property="Margin" Value="0,0,0,4"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+	</Style>
+	<Style x:Key="PropWinTextBlockStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="Margin" Value="0,0,0,2"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+		<Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+	</Style>
+	<Style x:Key="PropWinTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource PropWinCommon}">
+		<Setter Property="Margin" Value="0,0,0,4"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Padding" Value="1"/>
+		<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+		<Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TextBox}">
+					<Border Name="Bd"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}"
+							SnapsToDevicePixels="true">
+						<ScrollViewer Name="PART_ContentHost"
+										Background="{TemplateBinding Background}" 
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+							<Setter TargetName="Bd" Property="BorderBrush" Value="DarkGray"/>
+							<Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+							<Setter TargetName="PART_ContentHost" Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+						</Trigger>
+						<Trigger Property="IsReadOnly" Value="True">
+							<Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+							<Setter TargetName="Bd" Property="BorderBrush" Value="DarkGray"/>
+							<Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+							<Setter TargetName="PART_ContentHost" Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="Validation.HasError" Value="True">
+				<Setter Property="ToolTip" Value="{Binding 
+								Path=(Validation.Errors)[0].ErrorContent, 
+								RelativeSource={RelativeSource Self}}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="PropWinExpanderStyle" TargetType="{x:Type Expander}" BasedOn="{StaticResource PropWinCommon}">
+		<Setter Property="BorderBrush" Value="#FF708090"/>
+		<Setter Property="Margin" Value="1,4"/>
+		<Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}},Path=ActualWidth}"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+	</Style>
+</ResourceDictionary>
