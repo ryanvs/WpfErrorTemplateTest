@@ -37,6 +37,15 @@ namespace WpfErrorTemplateTest.ViewModels
             set { SetField(ref _description, value); }
         }
 
+        private bool? _isDeployed;
+
+        [Required]
+        public bool? IsDeployed
+        {
+            get { return _isDeployed; }
+            set { SetField(ref _isDeployed, value); }
+        }
+
         #region Validation
         private ValidationTemplate _validationTemplate;
 

@@ -189,6 +189,11 @@
 													 Value="True">
 								<Setter Property="IsOpen" Value="True"/>
 							</DataTrigger>
+							<!-- Shows Popup when mouse hovers over ToolTipCorner but is over placard -->
+							<DataTrigger Binding="{Binding ElementName=placard, Path=IsMouseOver}"
+													 Value="True">
+								<Setter Property="IsOpen" Value="True"/>
+							</DataTrigger>
 							<!-- Hides Popup when window is no longer active -->
 							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=IsActive}"
 													 Value="False">
@@ -205,6 +210,7 @@
 								IsHitTestVisible="False"
 								MinHeight="24"
 								MaxWidth="267">
+					<!-- Causes flickering on IsMouseOver when control is not focused
 					<Border.Effect>
 						<DropShadowEffect x:Name="errorBorderDropShadow"
 															ShadowDepth="4"
@@ -213,6 +219,7 @@
 															Direction="315"
 															BlurRadius="4"/>
 					</Border.Effect>
+					-->
 					<TextBlock x:Name="errorTextBlock"
 										 Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}"
 										 Foreground="White"
