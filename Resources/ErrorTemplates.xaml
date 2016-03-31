@@ -48,7 +48,7 @@
 	</Style>
 
 	<!-- http://stackoverflow.com/a/7437765/29762 -->
-	<ControlTemplate x:Key="errorTemplateSilverlightStyle">
+	<ControlTemplate x:Key="ErrorTemplateRight">
 		<StackPanel Orientation="Horizontal">
 			<Border
 				BorderThickness="1" BorderBrush="#FFdc000c"
@@ -137,7 +137,7 @@
 	</ControlTemplate>
 
 	<!-- http://stackoverflow.com/a/20394432/29762 -->
-	<ControlTemplate x:Key="ErrorTemplateSilverlightStyle2">
+	<ControlTemplate x:Key="ErrorTemplatePopupTop">
 		<StackPanel Orientation="Horizontal">
 			<!-- Defines TextBox outline border and the ToolTipCorner -->
 			<Border x:Name="border"

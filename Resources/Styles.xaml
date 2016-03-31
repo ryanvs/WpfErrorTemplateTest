@@ -25,6 +25,7 @@
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsEnabled" Value="False">
 							<Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+							<Setter Property="Foreground" Value="{x:Static SystemColors.GrayTextBrush}"/>
 							<Setter TargetName="Bd" Property="BorderBrush" Value="DarkGray"/>
 							<Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
 							<Setter TargetName="PART_ContentHost" Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
