@@ -132,6 +132,7 @@
 								 Text="Default"/>
 			<TextBox Grid.Row="1" Grid.Column="1" Margin="4"
 							 x:Name="ErrorTemplate1"
+							 Template="{DynamicResource TestTextBoxStyle}"
 							 Text="{Binding Description, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 			<CheckBox Grid.Row="1" Grid.Column="2" Margin="4"
 								HorizontalAlignment="Center" VerticalAlignment="Center"
