@@ -84,10 +84,6 @@ public class ValidationTemplate :
 
     void RaiseErrorsChanged(string propertyName)
     {
-        var handler = ErrorsChanged;
-        if (handler != null)
-        {
-            handler(this, new DataErrorsChangedEventArgs(propertyName));
-        }
+        ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
     }
 }
